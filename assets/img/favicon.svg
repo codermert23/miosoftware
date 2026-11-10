@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <mask id="cut"><rect width="64" height="64" fill="#fff"/><rect x="38" y="6" width="22" height="22" rx="3" transform="rotate(45 49 17)" fill="#000"/></mask>
+  </defs>
+  <circle cx="28" cy="36" r="19" fill="none" stroke="#707074" stroke-width="12" mask="url(#cut)"/>
+  <rect x="41.5" y="9.5" width="15" height="15" rx="2" transform="rotate(45 49 17)" fill="#FBC73F"/>
+</svg>
