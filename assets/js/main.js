@@ -127,10 +127,11 @@
     shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>',
     next: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>'
   };
-  const STATUS = { live: "Yayında", soon: "Yakında", beta: "Beta" };
+  const STATUS = { live: "Yayında", soon: "Yakında", beta: "Beta", closed: "Kapalı Test" };
   const LINKS = [
     ["appstore", "App Store", ICONS.download],
     ["playstore", "Google Play", ICONS.download],
+    ["testing", "Tester Ol", ICONS.arrow],
     ["steam", "Steam", ICONS.download],
     ["web", "Web Sitesi", ICONS.arrow]
   ];

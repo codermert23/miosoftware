@@ -11,8 +11,8 @@
      tagline   : Kısa açıklama (1–2 cümle)
      platforms : ["iOS", "Android", "PC", "Web", ...]
      year      : Yıl (metin)
-     status    : "live" (Yayında) | "soon" (Yakında) | "beta" (Beta)
-     links     : { appstore, playstore, steam, web }  — boş bırakılanlar gösterilmez
+     status    : "live" (Yayında) | "soon" (Yakında) | "beta" (Beta) | "closed" (Kapalı Test)
+     links     : { appstore, playstore, testing (kapalı test katılım linki), steam, web }  — boş bırakılanlar gösterilmez
      image     : (opsiyonel) "assets/img/proje.webp" — verilirse desen yerine görsel kullanılır
      screens   : (opsiyonel) Ekran görüntüleri [{ src, alt }]. Verilirse kapakta ilk 3'ü
                  yelpaze gibi dizilir ve karta tıklanınca galeri açılır.
@@ -55,8 +55,9 @@ window.MIO_PROJECTS = [
     tagline: "Boş bir arsayla başla, kendi oto yıkama imparatorluğunu kur. Otoyoldan geçen araçları çek; köpükle, süpür, parlat ve kasaya para yağsın. Peronlarını büyüt, marketini yönet, fiyatlarını kendin belirle. İnternetsiz oynanır, hesap gerekmez.",
     platforms: ["Android"],
     year: "2026",
-    status: "beta",
+    status: "closed",
     links: {
+      testing: "https://play.google.com/apps/testing/com.miosoftware.carwash"
       // Mağazada yayınlanınca:
       // playstore: "https://play.google.com/store/apps/details?id=com.miosoftware.carwashtycoon"
     },
