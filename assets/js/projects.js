@@ -59,7 +59,7 @@ window.MIO_PROJECTS = [
     links: {
       testing: "https://play.google.com/apps/testing/com.miosoftware.carwash"
       // Mağazada yayınlanınca:
-      // playstore: "https://play.google.com/store/apps/details?id=com.miosoftware.carwashtycoon"
+      // playstore: "https://play.google.com/store/apps/details?id=com.miosoftware.carwash"
     },
     privacy: "carwash-tycoon/gizlilik.html",
     orientation: "landscape",
