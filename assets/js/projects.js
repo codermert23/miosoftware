@@ -16,6 +16,8 @@
      image     : (opsiyonel) "assets/img/proje.webp" — verilirse desen yerine görsel kullanılır
      screens   : (opsiyonel) Ekran görüntüleri [{ src, alt }]. Verilirse kapakta ilk 3'ü
                  yelpaze gibi dizilir ve karta tıklanınca galeri açılır.
+     orientation: (opsiyonel) "landscape" → yatay ekran görüntüleri (oyunlar); varsayılan dikey telefon
+     privacy   : (opsiyonel) Gizlilik politikası sayfası, ör. "carwash-tycoon/gizlilik.html"
      featured  : (opsiyonel) true → kart masaüstünde 2 sütun genişliğinde, öne çıkan proje
      cover     : Görsel yoksa kapak tasarımı (screens varsa sadece bg/accent kullanılır)
                  { art: "pixel"|"dots"|"stripes"|"rings", shape: "square"|"circle",
@@ -45,6 +47,27 @@ window.MIO_PROJECTS = [
       { src: "assets/img/projects/parket/05-ayarlar.webp", alt: "ParkEt ayarlar ekranı: profil, araç, şifre, dil ve hesap silme" }
     ],
     cover: { bg: "#0C1F14", accent: "#2ECC71" }
+  },
+  {
+    title: "CarWash Tycoon",
+    type: "game",
+    featured: true,
+    tagline: "Boş bir arsayla başla, kendi oto yıkama imparatorluğunu kur. Otoyoldan geçen araçları çek; köpükle, süpür, parlat ve kasaya para yağsın. Peronlarını büyüt, marketini yönet, fiyatlarını kendin belirle. İnternetsiz oynanır, hesap gerekmez.",
+    platforms: ["Android"],
+    year: "2026",
+    status: "beta",
+    links: {
+      // Mağazada yayınlanınca:
+      // playstore: "https://play.google.com/store/apps/details?id=com.miosoftware.carwashtycoon"
+    },
+    privacy: "carwash-tycoon/gizlilik.html",
+    orientation: "landscape",
+    screens: [
+      { src: "assets/img/projects/carwash-tycoon/01-oyun.webp", alt: "CarWash Tycoon oynanış: yıkama peronları, süpürge alanı, oto market ve otoyoldan gelen araçlar" },
+      { src: "assets/img/projects/carwash-tycoon/02-emlakci.webp", alt: "CarWash Tycoon hikâye başlangıcı: emlakçı boş arsayı tanıtıyor" },
+      { src: "assets/img/projects/carwash-tycoon/03-isletme-adi.webp", alt: "CarWash Tycoon açılış ekranı: oto yıkamana isim ver" }
+    ],
+    cover: { art: "rings", shape: "circle", bg: "#0E2A47", fg: "#7CC4FF", accent: "#FFC83D", glyph: "CW" }
   }
 
   // ---- Yeni oyun eklemek için şablon ----

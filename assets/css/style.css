@@ -727,3 +727,73 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================
+   Gizlilik politikası (carwash-tycoon/gizlilik.html ve sonrakiler)
+   ========================================================= */
+.policy-hero .display { margin-top: 18px; }
+.policy-app { display: inline-flex; align-items: center; gap: 14px; margin-top: 28px; padding: 10px 18px 10px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; }
+.policy-app img { width: 56px; height: 56px; border-radius: 14px; }
+.policy-app b { display: block; font-family: var(--f-head); font-weight: 800; font-size: 1.15rem; letter-spacing: -.02em; line-height: 1.2; }
+.policy-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); }
+.lang-switch { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+.lang-switch button { min-height: 40px; padding: 0 18px; border-radius: 999px; font-weight: 600; font-size: .92rem; color: var(--muted); transition: background .25s, color .25s; }
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
+.policy-section { padding-top: 0; }
+.policy-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: clamp(48px, 7vw, 88px); }
+.policy-facts li { background: var(--ink); color: #fff; border-radius: var(--radius); padding: 24px 22px; display: grid; gap: 6px; }
+.policy-facts b { font-family: var(--f-head); font-weight: 900; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; letter-spacing: -.04em; color: var(--yellow); }
+.policy-facts span { color: var(--silver); font-size: .95rem; line-height: 1.4; }
+
+.policy { display: grid; grid-template-columns: 260px 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.policy-toc { position: sticky; top: calc(var(--header-h) + 24px); display: grid; gap: 14px; }
+.policy-toc ol { margin: 0; padding: 0; list-style: none; counter-reset: toc; display: grid; gap: 2px; border-left: 1px solid var(--line); }
+.policy-toc li { counter-increment: toc; }
+.policy-toc a { display: flex; gap: 10px; align-items: baseline; padding: 7px 0 7px 16px; margin-left: -1px; border-left: 2px solid transparent; color: var(--muted); font-weight: 500; transition: color .2s, border-color .2s; }
+.policy-toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--f-mono); font-size: .72rem; color: var(--silver-d); }
+.policy-toc a:hover { color: var(--ink); border-left-color: var(--yellow-d); }
+
+.policy-body { max-width: 720px; }
+.policy-intro { font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.45; font-weight: 500; margin-bottom: 48px; }
+.policy-intro .mono { font-size: .8em; text-transform: none; letter-spacing: 0; background: var(--bg-2); padding: 2px 8px; border-radius: 6px; }
+.policy-body section { padding: 36px 0; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header-h) + 24px); }
+.policy-body h2 { display: flex; align-items: baseline; gap: 14px; font-family: var(--f-head); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.8rem); letter-spacing: -.025em; line-height: 1.2; margin-bottom: 16px; }
+.policy-body h2 .mono { color: var(--muted); }
+.policy-body p { color: var(--muted); font-size: 1.05rem; }
+.policy-body p + p, .policy-body .policy-list + p { margin-top: 14px; }
+.policy-body strong { color: var(--ink); font-weight: 600; }
+.policy-body a:not(.btn) { color: var(--ink); text-decoration: underline; text-decoration-color: var(--yellow-d); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: background .2s; }
+.policy-body a:not(.btn):hover { background: var(--yellow); }
+.policy-list { margin: 16px 0 0; display: grid; gap: 8px; }
+.policy-list li { position: relative; padding-left: 22px; color: var(--muted); }
+.policy-list li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--yellow-d); }
+.policy-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; margin-top: 20px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.policy-contact > div { display: grid; gap: 4px; }
+.policy-contact .btn { margin-left: auto; }
+
+@media (max-width: 1080px) { .policy-facts { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 860px) {
+  .policy { grid-template-columns: 1fr; }
+  .policy-toc { position: static; }
+  .policy-contact .btn { margin-left: 0; }
+}
+@media (max-width: 400px) { .policy-facts { grid-template-columns: 1fr; } }
+
+
+/* Yatay (landscape) ekran görüntüleri — oyunlar */
+.card--landscape .card-cover .sc { left: 50%; bottom: auto; top: 50%; height: auto; width: 74%; border-radius: 12px; transform-origin: 50% 50%; }
+.card--landscape .card-cover .sc--c { transform: translate(-50%, -42%); }
+.card--landscape .card-cover .sc--l { transform: translate(-82%, -78%) rotate(-5deg) scale(.82); }
+.card--landscape .card-cover .sc--r { transform: translate(-18%, -6%) rotate(5deg) scale(.82); }
+.card--landscape:hover .card-cover .sc--c, .card--landscape .cover-screens:focus-visible .sc--c { transform: translate(-50%, -46%) scale(1.03); }
+.card--landscape:hover .card-cover .sc--l, .card--landscape .cover-screens:focus-visible .sc--l { transform: translate(-88%, -84%) rotate(-7deg) scale(.82); }
+.card--landscape:hover .card-cover .sc--r, .card--landscape .cover-screens:focus-visible .sc--r { transform: translate(-12%, 0%) rotate(7deg) scale(.82); }
+.gallery--landscape .gallery-track::before, .gallery--landscape .gallery-track::after { flex-basis: max(0px, calc(50% - min(40vw, 540px))); }
+.gallery--landscape .gallery-track img { height: auto; width: min(80vw, 1080px); max-height: 64dvh; object-fit: contain; border-radius: 14px; }
+@media (max-width: 640px) {
+  .card--landscape .card-cover .sc { width: 82%; }
+  .gallery--landscape .gallery-track img { width: calc(100vw - 72px); }
+  .gallery--landscape .gallery-track::before, .gallery--landscape .gallery-track::after { flex-basis: 0; }
+}

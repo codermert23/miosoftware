@@ -124,6 +124,7 @@
     images: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="13" height="16" rx="2"/><path d="M8 2h11a2 2 0 0 1 2 2v13"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
     prev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
+    shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>',
     next: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>'
   };
   const STATUS = { live: "Yayında", soon: "Yakında", beta: "Beta" };
@@ -139,7 +140,9 @@
     const c = p.cover || {};
     const idx = projects.indexOf(p);
     const screens = Array.isArray(p.screens) ? p.screens : [];
-    const shot = (s, cls) => s ? `<img class="sc ${cls}" src="${esc(s.src)}" alt="" loading="lazy" decoding="async" width="420" height="900">` : "";
+    const land = p.orientation === "landscape";
+    const [sw, sh] = land ? [1200, 540] : [420, 900];
+    const shot = (s, cls) => s ? `<img class="sc ${cls}" src="${esc(s.src)}" alt="" loading="lazy" decoding="async" width="${sw}" height="${sh}">` : "";
     const cover = screens.length
       ? `<div class="cover-art art-dots" aria-hidden="true"></div>
          <button class="cover-screens" type="button" data-gallery="${idx}" aria-label="${esc(p.title)} ekran görüntülerini aç (${screens.length})">
@@ -151,13 +154,16 @@
       : `<div class="cover-art art-${esc(c.art || "dots")}" aria-hidden="true"></div>
          <div class="cover-shape ${c.shape === "circle" ? "cover-shape--circle" : ""}" aria-hidden="true"></div>
          <span class="cover-glyph" aria-hidden="true">${esc(c.glyph || p.title.slice(0, 2))}</span>`;
-    const links = LINKS.filter(([k]) => p.links && p.links[k])
+    const storeLinks = LINKS.filter(([k]) => p.links && p.links[k])
       .map(([k, label, icon]) => `<a class="store-btn" href="${esc(p.links[k])}" target="_blank" rel="noopener">${icon}${label}<span class="sr-only"> — ${esc(p.title)}</span></a>`)
-      .join("") + (screens.length
+      .join("");
+    const links = (storeLinks || `<span class="store-btn is-soon">${ICONS.clock}Çok yakında</span>`) + (screens.length
         ? `<button type="button" class="store-btn store-btn--ghost" data-gallery="${idx}">${ICONS.images}Ekranlar<span class="sr-only"> — ${esc(p.title)}</span></button>`
+        : "") + (p.privacy
+        ? `<a class="store-btn store-btn--ghost" href="${esc(p.privacy)}">${ICONS.shield}Gizlilik<span class="sr-only"> politikası — ${esc(p.title)}</span></a>`
         : "");
     const style = `--c1:${esc(c.bg || "#0D0D0F")};--c2:${esc(c.fg || "#C8C9CC")};--c3:${esc(c.accent || "#FFC83D")};--i:${i % 3}`;
-    const cls = ["card", p.featured ? "card--featured" : "", screens.length ? "card--screens" : ""].join(" ").trim();
+    const cls = ["card", p.featured ? "card--featured" : "", screens.length ? "card--screens" : "", screens.length && land ? "card--landscape" : ""].join(" ").replace(/\s+/g, " ").trim();
     return `
       <article class="${cls}" data-reveal style="${style}">
         <div class="card-cover">
@@ -169,7 +175,7 @@
           <div class="card-head"><h3>${esc(p.title)}</h3><span class="card-year mono">${esc(p.year)}</span></div>
           <p>${esc(p.tagline)}</p>
           <ul class="platforms" aria-label="Platformlar">${(p.platforms || []).map((x) => `<li class="mono" lang="en">${esc(x)}</li>`).join("")}</ul>
-          <div class="card-links">${links || `<span class="store-btn is-soon">${ICONS.clock}Çok yakında</span>`}</div>
+          <div class="card-links">${links}</div>
         </div>
       </article>`;
   }
@@ -322,9 +328,11 @@
     });
     gallery._fill = (p) => {
       $("#gallery-title", gallery).textContent = p.title;
+      const land = p.orientation === "landscape";
+      gallery.classList.toggle("gallery--landscape", land);
       track.innerHTML = p.screens.map((s, n) => `
         <figure>
-          <img src="${esc(s.src)}" alt="${esc(s.alt || `${p.title} ekran ${n + 1}`)}" width="420" height="900" decoding="async">
+          <img src="${esc(s.src)}" alt="${esc(s.alt || `${p.title} ekran ${n + 1}`)}" width="${land ? 1200 : 420}" height="${land ? 540 : 900}" decoding="async">
         </figure>`).join("");
       $(".gallery-dots", gallery).innerHTML = p.screens.map(() => "<i></i>").join("");
       track.scrollLeft = 0;
