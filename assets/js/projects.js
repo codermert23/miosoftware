@@ -9,10 +9,10 @@
      title     : Proje adı
      type      : "game" (oyun) | "app" (uygulama)
      tagline   : Kısa açıklama (1–2 cümle)
-     platforms : ["iOS", "Android", "PC", "Web", ...]
+     platforms : ["iOS", "Android", "PC", "Web", ...] — henüz yoksa "iOS (yakında)" yazılabilir
      year      : Yıl (metin)
      status    : "live" (Yayında) | "soon" (Yakında) | "beta" (Beta) | "closed" (Kapalı Test)
-     links     : { appstore, playstore, testing (kapalı test katılım linki), steam, web }  — boş bırakılanlar gösterilmez
+     links     : { appstore, playstore, group (test grubuna katılma linki — önce bu), testing (kapalı test katılım linki), steam, web }  — boş bırakılanlar gösterilmez
      image     : (opsiyonel) "assets/img/proje.webp" — verilirse desen yerine görsel kullanılır
      screens   : (opsiyonel) Ekran görüntüleri [{ src, alt }]. Verilirse kapakta ilk 3'ü
                  yelpaze gibi dizilir ve karta tıklanınca galeri açılır.
@@ -32,7 +32,7 @@ window.MIO_PROJECTS = [
     type: "app",
     featured: true,
     tagline: "Boşalan park yeri, bekleyen sürücüye. Park yerinden çıkmadan önce bildir, yakındaki bir sürücü yerini ayırtsın; sen de puan kazan. Android'de ücretsiz, iOS sürümü çok yakında.",
-    platforms: ["Android"],
+    platforms: ["Android", "iOS (yakında)"],
     year: "2026",
     status: "live",
     links: {
@@ -53,10 +53,11 @@ window.MIO_PROJECTS = [
     type: "game",
     featured: true,
     tagline: "Boş bir arsayla başla, kendi oto yıkama imparatorluğunu kur. Otoyoldan geçen araçları çek; köpükle, süpür, parlat ve kasaya para yağsın. Peronlarını büyüt, marketini yönet, fiyatlarını kendin belirle. İnternetsiz oynanır, hesap gerekmez.",
-    platforms: ["Android"],
+    platforms: ["Android", "iOS"],
     year: "2026",
     status: "closed",
     links: {
+      group: "https://groups.google.com/g/parket-test/members",
       testing: "https://play.google.com/apps/testing/com.miosoftware.carwash"
       // Mağazada yayınlanınca:
       // playstore: "https://play.google.com/store/apps/details?id=com.miosoftware.carwash"
@@ -64,9 +65,10 @@ window.MIO_PROJECTS = [
     privacy: "carwash-tycoon/gizlilik.html",
     orientation: "landscape",
     screens: [
-      { src: "assets/img/projects/carwash-tycoon/01-oyun.webp", alt: "CarWash Tycoon oynanış: yıkama peronları, süpürge alanı, oto market ve otoyoldan gelen araçlar" },
-      { src: "assets/img/projects/carwash-tycoon/02-emlakci.webp", alt: "CarWash Tycoon hikâye başlangıcı: emlakçı boş arsayı tanıtıyor" },
-      { src: "assets/img/projects/carwash-tycoon/03-isletme-adi.webp", alt: "CarWash Tycoon açılış ekranı: oto yıkamana isim ver" }
+      { src: "assets/img/projects/carwash-tycoon/gorsel1.webp", alt: "CarWash Tycoon oynanış: yıkama peronları, oto market ve rehber karakterin 'Kapasiteni büyüt' ipucu" },
+      { src: "assets/img/projects/carwash-tycoon/gorsel2.webp", alt: "CarWash Tycoon ayarlar ekranı: ses, müzik, grafik kalitesi ve kare hızı seçenekleri" },
+      { src: "assets/img/projects/carwash-tycoon/gorsel3.webp", alt: "CarWash Tycoon oynanış: peronlarda yıkanan araçlar ve toplanmayı bekleyen kazançlar" },
+      { src: "assets/img/projects/carwash-tycoon/gorsel4.webp", alt: "CarWash Tycoon fiyat belirleme ekranı: yıkama, süpürge ve market ürünleri için fiyat ve müşteri tepkisi" }
     ],
     cover: { art: "rings", shape: "circle", bg: "#0E2A47", fg: "#7CC4FF", accent: "#FFC83D", glyph: "CW" }
   }

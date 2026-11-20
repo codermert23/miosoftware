@@ -131,7 +131,8 @@
   const LINKS = [
     ["appstore", "App Store", ICONS.download],
     ["playstore", "Google Play", ICONS.download],
-    ["testing", "Tester Ol", ICONS.arrow],
+    ["group", "1. Gruba Katıl", ICONS.arrow],
+    ["testing", (p) => (p.links.group ? "2. Tester Ol" : "Tester Ol"), ICONS.arrow],
     ["steam", "Steam", ICONS.download],
     ["web", "Web Sitesi", ICONS.arrow]
   ];
@@ -156,7 +157,7 @@
          <div class="cover-shape ${c.shape === "circle" ? "cover-shape--circle" : ""}" aria-hidden="true"></div>
          <span class="cover-glyph" aria-hidden="true">${esc(c.glyph || p.title.slice(0, 2))}</span>`;
     const storeLinks = LINKS.filter(([k]) => p.links && p.links[k])
-      .map(([k, label, icon]) => `<a class="store-btn" href="${esc(p.links[k])}" target="_blank" rel="noopener">${icon}${label}<span class="sr-only"> — ${esc(p.title)}</span></a>`)
+      .map(([k, label, icon]) => `<a class="store-btn" href="${esc(p.links[k])}" target="_blank" rel="noopener">${icon}${typeof label === "function" ? label(p) : label}<span class="sr-only"> — ${esc(p.title)}</span></a>`)
       .join("");
     const links = (storeLinks || `<span class="store-btn is-soon">${ICONS.clock}Çok yakında</span>`) + (screens.length
         ? `<button type="button" class="store-btn store-btn--ghost" data-gallery="${idx}">${ICONS.images}Ekranlar<span class="sr-only"> — ${esc(p.title)}</span></button>`
@@ -190,7 +191,7 @@
     all: projects.length,
     game: projects.filter((p) => p.type === "game").length,
     app: projects.filter((p) => p.type === "app").length,
-    platform: new Set(projects.flatMap((p) => p.platforms || [])).size
+    platform: new Set(projects.flatMap((p) => p.platforms || []).map((x) => x.replace(/\s*\(.*\)$/, ""))).size
   };
   $$("[data-stat]").forEach((el) => {
     const n = counts[el.dataset.stat] ?? 0;
