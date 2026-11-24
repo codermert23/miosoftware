@@ -1,6 +1,6 @@
 # MIO Software
 
-Oyun ve mobil uygulama geliştiricisi MIO Software'in kişisel web sitesi: [miosoftware.org](https://miosoftware.org)
+Oyun ve mobil uygulama geliştiricisi MIO Software'in kişisel web sitesi: [miosoftware.com.tr](https://miosoftware.com.tr)
 
 Saf HTML, CSS ve JavaScript ile yazılmış statik bir site. Derleme adımı yok, GitHub Pages üzerinden yayınlanıyor.
 

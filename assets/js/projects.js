@@ -31,11 +31,12 @@ window.MIO_PROJECTS = [
     title: "ParkEt",
     type: "app",
     featured: true,
-    tagline: "Boşalan park yeri, bekleyen sürücüye. Park yerinden çıkmadan önce bildir, yakındaki bir sürücü yerini ayırtsın; sen de puan kazan. Android'de ücretsiz, iOS sürümü çok yakında.",
-    platforms: ["Android", "iOS (yakında)"],
+    tagline: "Boşalan park yeri, bekleyen sürücüye. Park yerinden çıkmadan önce bildir, yakındaki bir sürücü yerini ayırtsın; sen de puan kazan. Android ve iOS'ta ücretsiz.",
+    platforms: ["Android", "iOS"],
     year: "2026",
     status: "live",
     links: {
+      appstore: "https://apps.apple.com/tr/app/parket-bo%C5%9Falan-park-yeri/id6833449530?l=tr",
       playstore: "https://play.google.com/store/apps/details?id=com.codermert.parket",
       web: "https://auth.parketapp.org/"
     },
