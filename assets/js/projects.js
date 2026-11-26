@@ -56,8 +56,9 @@ window.MIO_PROJECTS = [
     tagline: "Boş bir arsayla başla, kendi oto yıkama imparatorluğunu kur. Otoyoldan geçen araçları çek; köpükle, süpür, parlat ve kasaya para yağsın. Peronlarını büyüt, marketini yönet, fiyatlarını kendin belirle. İnternetsiz oynanır, hesap gerekmez.",
     platforms: ["Android", "iOS"],
     year: "2026",
-    status: "closed",
+    status: "live",
     links: {
+      appstore: "https://apps.apple.com/tr/app/carwash-tycoon-oto-y%C4%B1kama/id6837340149?l=tr",
       group: "https://groups.google.com/g/parket-test/members",
       testing: "https://play.google.com/apps/testing/com.miosoftware.carwash"
       // Mağazada yayınlanınca:
